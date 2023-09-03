@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iszitoun <iszitoun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: deimos <deimos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 18:18:20 by iszitoun          #+#    #+#             */
-/*   Updated: 2023/08/11 17:24:06 by iszitoun         ###   ########.fr       */
+/*   Updated: 2023/09/03 23:33:08 by deimos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,5 +121,6 @@ void			looking_down(t_main *m);
 
 char			*floor_ceiling(t_main *m);
 int				merge_floor_color(t_main *m);
+int				merge_ceiling_color(t_main *m);
 
 #endif

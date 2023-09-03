@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parssing1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iszitoun <iszitoun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: deimos <deimos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 18:35:27 by iszitoun          #+#    #+#             */
-/*   Updated: 2023/08/11 16:52:30 by iszitoun         ###   ########.fr       */
+/*   Updated: 2023/09/03 23:33:19 by deimos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	items_check(t_main *m)
 	around_floor(m);
 	if ((dir_path(m) == NULL && m->p->count_paths != 4))
 		path_error();
-	else if((floor_ceiling(m) == NULL && m->c->count_rgb != 2) || merge_floor_color(m) == -1)
+	else if((floor_ceiling(m) == NULL && m->c->count_rgb != 2) || merge_floor_color(m) == -1 || merge_ceiling_color(m) == -1)
 		color_error();
 	printf("rgb ->>>%d\n", merge_floor_color(m));
 	printf("north ->%s\nsouth ->%s\nwest ->%s\neast ->%s\n", m->p->north_path, m->p->south_path, m->p->west_path, m->p->east_path);

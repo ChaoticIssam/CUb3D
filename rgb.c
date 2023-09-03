@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rgb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iszitoun <iszitoun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: deimos <deimos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:03:19 by iszitoun          #+#    #+#             */
-/*   Updated: 2023/08/11 17:37:30 by iszitoun         ###   ########.fr       */
+/*   Updated: 2023/09/03 23:06:28 by deimos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,10 +121,7 @@ int	merge_floor_color(t_main *m)
 				i++;
 			if (!(m->c->floor_color[i + 1] >= '0' && m->c->floor_color[i + 1] <= '9') && m->c->floor_color[i
 				+ 1] != ' ' && m->c->floor_color[i + 1] != '\t' && m->c->floor_color[i + 1] != ',')
-				{
-					printf("coco\n");
 					return (-1);
-				}
 		}
 		while (m->c->floor_color[i] == ' ' || m->c->floor_color[i] == '\t'
 			|| m->c->floor_color[i] == ',')
@@ -150,12 +147,67 @@ int	merge_floor_color(t_main *m)
 			while (ft_isdigit(m->c->floor_color[i]))
 				i++;
 			if (m->c->floor_color[i + 1] || !white_space(m->c->floor_color[i]))
-			{
-					printf("coco3\n");
 					return (-1);
-			}
 		}
 		if (i == ft_strlen2(m->c->floor_color))
+		{
+			if (r == -1 || g == -1 || b == -1)
+				return (-1);
+			return ((r << 16) | (g << 8) | b);
+		}
+		i++;
+	}
+	if (r == -1 || g == -1 || b == -1)
+		return (-1);
+	return (0);
+}
+
+int	merge_ceiling_color(t_main *m)
+{
+	int	i;
+	int	r;
+	int	g;
+	int	b;
+
+	i = 0;
+	r = -1;
+	g = -1;
+	b = -1;
+	while (m->c->ceiling_color[i])
+	{
+		if (m->c->ceiling_color[i] >= '0' && m->c->ceiling_color[i] <= '9')
+		{
+			r = ft_atoi(&m->c->ceiling_color[i]);
+			while (m->c->ceiling_color[i] != ',')
+				i++;
+			if (!(m->c->ceiling_color[i + 1] >= '0' && m->c->ceiling_color[i + 1] <= '9') && m->c->ceiling_color[i
+				+ 1] != ' ' && m->c->ceiling_color[i + 1] != '\t' && m->c->ceiling_color[i + 1] != ',')
+				return (-1);
+		}
+		while (m->c->ceiling_color[i] == ' ' || m->c->ceiling_color[i] == '\t'
+			|| m->c->ceiling_color[i] == ',')
+			i++;
+		if (m->c->ceiling_color[i] >= '0' && m->c->ceiling_color[i] <= '9')
+		{
+			g = ft_atoi(&m->c->ceiling_color[i]);
+			while (m->c->ceiling_color[i] != ',')
+				i++;
+			if (!(m->c->ceiling_color[i + 1] >= '0' && m->c->ceiling_color[i + 1] <= '9') && m->c->ceiling_color[i
+				+ 1] != ' ' && m->c->ceiling_color[i + 1] != '\t' && m->c->ceiling_color[i + 1] != ',')
+					return (-1);
+		}
+		while (m->c->ceiling_color[i] == ' ' || m->c->ceiling_color[i] == '\t'
+			|| m->c->ceiling_color[i] == ',')
+			i++;
+		if (m->c->ceiling_color[i] >= '0' && m->c->ceiling_color[i] <= '9')
+		{
+			b = ft_atoi(&m->c->ceiling_color[i]);
+			while (ft_isdigit(m->c->ceiling_color[i]))
+				i++;
+			if (m->c->ceiling_color[i + 1] || !white_space(m->c->ceiling_color[i]))
+					return (-1);
+		}
+		if (i == ft_strlen2(m->c->ceiling_color))
 		{
 			if (r == -1 || g == -1 || b == -1)
 				return (-1);
