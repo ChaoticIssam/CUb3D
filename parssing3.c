@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parssing3.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iszitoun <iszitoun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: deimos <deimos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 13:46:59 by iszitoun          #+#    #+#             */
-/*   Updated: 2023/08/10 16:53:25 by iszitoun         ###   ########.fr       */
+/*   Updated: 2023/09/08 16:00:37 by deimos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	around_floor(t_main *m)
 		{
 			if ((m->map[i][j] == '0' || m->map[i][j] == 'N')
 				&& (white_space(m->map[i + 1][j]) || white_space(m->map[i
-						- 1][j])))
+						- 1][j]) || white_space(m->map[i][j + 1]) || white_space(m->map[i][j - 1])))
 				void_next_floor();
 			j++;
 		}

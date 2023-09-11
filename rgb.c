@@ -6,7 +6,7 @@
 /*   By: deimos <deimos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:03:19 by iszitoun          #+#    #+#             */
-/*   Updated: 2023/09/03 23:06:28 by deimos           ###   ########.fr       */
+/*   Updated: 2023/09/06 20:53:01 by deimos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,94 @@ char	*floor_ceiling(t_main *m)
 	return (NULL);
 }
 
+char *floor_color_final(char *str)
+{
+	int	i;
+	int	j;
+	int	count;
+	int	lock;
+	char *floor;
+
+	floor = malloc(sizeof(char) * ft_strlen(str));
+	i = 0;
+	j = 0;
+	lock = 0;
+	count = 0;
+	while (str[i])
+	{
+		lock = 0;
+		if (!ft_isdigit(str[i]) && str[i] != ' ' && str[i] != '\t' && str[i] != ',')
+			return (NULL);
+		while (str[i] == ' ' || str[i] == '\t')
+			i++;
+		while (ft_isdigit(str[i]))
+		{
+			if (lock == 0)
+			{
+				count++;
+				lock = 1;
+			}
+			floor[j] = str[i];
+			i++;
+			j++;
+		}
+		if (str[i] == ',' || str[i] == ' ' || str[i] == '\t')
+		{
+			floor[j] = str[i];
+			i++;
+			j++;
+		}
+	}
+	if (count != 3)
+		return (NULL);
+	floor[j] = '\0';
+	return (floor);
+}
+
+char *ceiling_color_final(char *str)
+{
+	int	i;
+	int	j;
+	int	count;
+	int	lock;
+	char *ceiling;
+
+	ceiling = malloc(sizeof(char) * ft_strlen(str));
+	i = 0;
+	j = 0;
+	lock = 0;
+	count = 0;
+	while (str[i])
+	{
+		lock = 0;
+		if (!ft_isdigit(str[i]) && str[i] != ' ' && str[i] != '\t' && str[i] != ',')
+			return (NULL);
+		while (str[i] == ' ' || str[i] == '\t')
+			i++;
+		while (ft_isdigit(str[i]))
+		{
+			if (lock == 0)
+			{
+				count++;
+				lock = 1;
+			}
+			ceiling[j] = str[i];
+			i++;
+			j++;
+		}
+		if (str[i] == ',' || str[i] == ' ' || str[i] == '\t')
+		{
+			ceiling[j] = str[i];
+			i++;
+			j++;
+		}
+	}
+	if (count != 3)
+		return (NULL);
+	ceiling[j] = '\0';
+	return (ceiling);
+}
+
 int	merge_floor_color(t_main *m)
 {
 	int	i;
@@ -111,7 +199,9 @@ int	merge_floor_color(t_main *m)
 	r = -1;
 	g = -1;
 	b = -1;
-	printf("%s\n", m->c->floor_color);
+	m->c->floor_color = floor_color_final(m->c->floor_color);
+	if (m->c->floor_color == NULL)
+		return(-1);
 	while (m->c->floor_color[i])
 	{
 		if (m->c->floor_color[i] >= '0' && m->c->floor_color[i] <= '9')
@@ -133,10 +223,7 @@ int	merge_floor_color(t_main *m)
 				i++;
 			if (!(m->c->floor_color[i + 1] >= '0' && m->c->floor_color[i + 1] <= '9') && m->c->floor_color[i
 				+ 1] != ' ' && m->c->floor_color[i + 1] != '\t' && m->c->floor_color[i + 1] != ',')
-				{
-					printf("coco2\n");
 					return (-1);
-				}
 		}
 		while (m->c->floor_color[i] == ' ' || m->c->floor_color[i] == '\t'
 			|| m->c->floor_color[i] == ',')
@@ -173,6 +260,9 @@ int	merge_ceiling_color(t_main *m)
 	r = -1;
 	g = -1;
 	b = -1;
+	m->c->ceiling_color = ceiling_color_final(m->c->ceiling_color);
+	if (!m->c->ceiling_color)
+		return (-1);
 	while (m->c->ceiling_color[i])
 	{
 		if (m->c->ceiling_color[i] >= '0' && m->c->ceiling_color[i] <= '9')

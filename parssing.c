@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parssing.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iszitoun <iszitoun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: deimos <deimos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 18:22:38 by iszitoun          #+#    #+#             */
-/*   Updated: 2023/08/09 22:26:19 by iszitoun         ###   ########.fr       */
+/*   Updated: 2023/09/09 01:27:15 by deimos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	map_frst_line(t_main *m)
+int	map_first_line(t_main *m)
 {
 	int	i;
 	int	j;
@@ -22,6 +22,28 @@ int	map_frst_line(t_main *m)
 	while (m->map[i])
 	{
 		j = 0;
+		while (m->map[i][j])
+		{
+			if (m->map[i][j] == 'C')
+				return(i);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	map_frst_line(t_main *m)
+{
+	int	i;
+	int	j;
+
+	i = map_first_line(m) + 1;
+	j = 0;
+	while (m->map[i])
+	{
+		j = 0;
+		printf("line is ->>>>%s and char is ->>>%c\n", m->map[i], m->map[i][j]);
 		while (m->map[i][j] && (m->map[i][j] == ' ' || m->map[i][j] == '\t'))
 			j++;
 		if (m->map[i][j] == '1')

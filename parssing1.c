@@ -6,7 +6,7 @@
 /*   By: deimos <deimos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 18:35:27 by iszitoun          #+#    #+#             */
-/*   Updated: 2023/09/03 23:33:19 by deimos           ###   ########.fr       */
+/*   Updated: 2023/09/08 17:39:06 by deimos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	items_check(t_main *m)
 		path_error();
 	else if((floor_ceiling(m) == NULL && m->c->count_rgb != 2) || merge_floor_color(m) == -1 || merge_ceiling_color(m) == -1)
 		color_error();
-	printf("rgb ->>>%d\n", merge_floor_color(m));
 	printf("north ->%s\nsouth ->%s\nwest ->%s\neast ->%s\n", m->p->north_path, m->p->south_path, m->p->west_path, m->p->east_path);
 	map_check_first(m);
 	map_check_last(m);
@@ -31,7 +30,7 @@ int	line_count(t_main *m)
 {
 	int	i;
 
-	i = map_frst_line(m);
+	i = 0;
 	if (!m->map)
 		return (0);
 	while (m->map[i])

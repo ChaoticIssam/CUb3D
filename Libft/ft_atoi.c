@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iszitoun <iszitoun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: deimos <deimos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:24:18 by iszitoun          #+#    #+#             */
-/*   Updated: 2023/08/11 16:54:33 by iszitoun         ###   ########.fr       */
+/*   Updated: 2023/09/06 20:54:08 by deimos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,5 @@ int	ft_atoi(const char *str)
 		return (0);
 	if (result > 9223372036854775807 && sign == 1)
 		return (-1);
-	printf("%llu\n", result);
 	return (result * sign);
 }

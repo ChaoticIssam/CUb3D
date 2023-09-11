@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parssing2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iszitoun <iszitoun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: deimos <deimos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 18:39:20 by iszitoun          #+#    #+#             */
-/*   Updated: 2023/08/09 22:46:13 by iszitoun         ###   ########.fr       */
+/*   Updated: 2023/09/08 18:43:06 by deimos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	p_check(t_main *m)
 	int count;
 
 	i = map_frst_line(m);
+	printf("i is %d\n", i);
 	j = 1;
 	count = 0;
 	while (++i < line_count(m))

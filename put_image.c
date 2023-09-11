@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_image.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iszitoun <iszitoun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: deimos <deimos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 15:01:20 by iszitoun          #+#    #+#             */
-/*   Updated: 2023/08/10 17:35:50 by iszitoun         ###   ########.fr       */
+/*   Updated: 2023/09/06 20:54:41 by deimos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ void	put_floor(t_main *m)
 	m->xpm_img = mlx_xpm_file_to_image(m->mlx, "textures/floor.xpm", &m->w,
 			&m->h);
 	if (m->xpm_img == NULL)
-	{
-		printf("exited\n");
 		exit(1);
-	}
 	mlx_put_image_to_window(m->mlx, m->win, m->xpm_img, m->j * 60, m->i * 60);
 }
 
