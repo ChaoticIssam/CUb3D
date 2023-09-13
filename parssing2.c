@@ -39,7 +39,6 @@ int	p_check(t_main *m)
 	int count;
 
 	i = map_frst_line(m);
-	printf("i is %d\n", i);
 	j = 1;
 	count = 0;
 	while (++i < line_count(m))

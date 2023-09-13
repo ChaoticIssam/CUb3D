@@ -93,6 +93,7 @@ int				put_image(t_main *m);
 
 void			invalid_item_error(void);
 void			arg_error(void);
+void			sides_error(void);
 void			horinzontal_error(void);
 void			duplicated_player_error(void);
 void			path_error(void);
@@ -110,6 +111,7 @@ void			for_south(t_main *m, t_dir *dir);
 void			for_west(t_main *m, t_dir *dir);
 void			for_east(t_main *m, t_dir *dir);
 
+void			check_sides(t_main *m);
 int				white_space(char c);
 void			around_floor(t_main *m);
 

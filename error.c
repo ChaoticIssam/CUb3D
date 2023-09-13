@@ -42,6 +42,12 @@ void	void_next_floor(void)
 	exit(1);
 }
 
+void	sides_error(void)
+{
+	ft_printf("\nERROR: Check your map's *VERTICAL WALLS* !!!\n");
+	exit(1);
+}
+
 void	path_error(void)
 {
 	ft_printf("ERROR:\n \tPath is invalid or Missing!\n");

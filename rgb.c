@@ -105,6 +105,7 @@ char *floor_color_final(char *str)
 	int	i;
 	int	j;
 	int	count;
+	int	count1;
 	int	lock;
 	char *floor;
 
@@ -113,6 +114,7 @@ char *floor_color_final(char *str)
 	j = 0;
 	lock = 0;
 	count = 0;
+	count1 = 0;
 	while (str[i])
 	{
 		lock = 0;
@@ -133,12 +135,14 @@ char *floor_color_final(char *str)
 		}
 		if (str[i] == ',' || str[i] == ' ' || str[i] == '\t')
 		{
+			if (str[i] == ',')
+				count1++;
 			floor[j] = str[i];
 			i++;
 			j++;
 		}
 	}
-	if (count != 3)
+	if (count != 3 || count1 != 2)
 		return (NULL);
 	floor[j] = '\0';
 	return (floor);
@@ -149,6 +153,7 @@ char *ceiling_color_final(char *str)
 	int	i;
 	int	j;
 	int	count;
+	int	count1;
 	int	lock;
 	char *ceiling;
 
@@ -157,6 +162,7 @@ char *ceiling_color_final(char *str)
 	j = 0;
 	lock = 0;
 	count = 0;
+	count1 = 0;
 	while (str[i])
 	{
 		lock = 0;
@@ -177,12 +183,14 @@ char *ceiling_color_final(char *str)
 		}
 		if (str[i] == ',' || str[i] == ' ' || str[i] == '\t')
 		{
+			if (str[i] == ',')
+				count1++;
 			ceiling[j] = str[i];
 			i++;
 			j++;
 		}
 	}
-	if (count != 3)
+	if (count != 3 || count1 != 2)
 		return (NULL);
 	ceiling[j] = '\0';
 	return (ceiling);

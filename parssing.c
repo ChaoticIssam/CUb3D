@@ -43,7 +43,6 @@ int	map_frst_line(t_main *m)
 	while (m->map[i])
 	{
 		j = 0;
-		printf("line is ->>>>%s and char is ->>>%c\n", m->map[i], m->map[i][j]);
 		while (m->map[i][j] && (m->map[i][j] == ' ' || m->map[i][j] == '\t'))
 			j++;
 		if (m->map[i][j] == '1')
@@ -54,6 +53,7 @@ int	map_frst_line(t_main *m)
 				if (!m->map[i][j] || m->map[i][j] == '\n')
 					return (i);
 			}
+			horinzontal_error();
 		}
 		i++;
 	}
