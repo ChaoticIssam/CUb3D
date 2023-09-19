@@ -246,7 +246,7 @@ int	merge_floor_color(t_main *m)
 		}
 		if (i == ft_strlen2(m->c->floor_color))
 		{
-			if (r == -1 || g == -1 || b == -1)
+			if (r == -1 || g == -1 || b == -1 || r >= 256 || g >= 256 || b >= 256)
 				return (-1);
 			return ((r << 16) | (g << 8) | b);
 		}
@@ -307,7 +307,7 @@ int	merge_ceiling_color(t_main *m)
 		}
 		if (i == ft_strlen2(m->c->ceiling_color))
 		{
-			if (r == -1 || g == -1 || b == -1)
+			if (r == -1 || g == -1 || b == -1 || r >= 256 || g >= 256 || b >= 256)
 				return (-1);
 			return ((r << 16) | (g << 8) | b);
 		}

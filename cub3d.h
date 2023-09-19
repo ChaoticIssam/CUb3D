@@ -70,6 +70,7 @@ typedef struct s_main
 }				t_main;
 
 void			check_name(char *name);
+void			new_line_inside(t_main *m);
 int				map_frst_line(t_main *m);
 void			check_check(t_main *m);
 
@@ -99,6 +100,8 @@ void			duplicated_player_error(void);
 void			path_error(void);
 void			void_next_floor(void);
 void			color_error(void);
+void			undefined_line_error(void);
+void			empty_line_inside(void);
 
 int				moving_key(int keysym, t_main *m);
 void			right_key(t_main *m);
@@ -114,6 +117,7 @@ void			for_east(t_main *m, t_dir *dir);
 void			check_sides(t_main *m);
 int				white_space(char c);
 void			around_floor(t_main *m);
+void			line_undef(t_main *m);
 
 void			floor_before_player(t_main *m);
 void			looking_right(t_main *m);

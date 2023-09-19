@@ -58,3 +58,31 @@ void	around_floor(t_main *m)
 		i++;
 	}
 }
+
+void	line_undef(t_main *m)
+{
+	int	i;
+	int	j;
+	int	count;
+	int	frst_line;
+
+	i = 0;
+	j = 0;
+	count = 0;
+	frst_line = map_frst_line(m);
+	while (m->map[i] && i < frst_line)
+	{
+		while (m->map[i][j] && m->map[i][j] != '\n')
+		{
+			if (!white_space(m->map[i][j]))
+			{
+				count++;
+				break;
+			}
+			j++;
+		}
+		i++;
+	}
+	if (count != 6)
+		undefined_line_error();
+}

@@ -14,16 +14,16 @@
 
 void	items_check(t_main *m)
 {
+	line_undef(m);
 	map_check_first(m);
 	check_sides(m);
 	map_check_last(m);
 	around_floor(m);
 	invalid_item(m);
-	if (((dir_path(m) == NULL || m->p->north_path == NULL || m->p->south_path == NULL || m->p->west_path == NULL || m->p->east_path) && m->p->count_paths != 4))
+	if (((dir_path(m) == NULL) && m->p->count_paths != 4) || (!m->p->north_path || !m->p->south_path || !m->p->west_path || !m->p->east_path))
 		path_error();
 	else if((floor_ceiling(m) == NULL && m->c->count_rgb != 2) || merge_floor_color(m) == -1 || merge_ceiling_color(m) == -1)
 		color_error();
-	printf("(->>>>%d)\n", m->p->north_path[0]);
 	printf("north ->(%s)\nsouth ->(%s)\nwest ->(%s)\neast ->(%s)\n", m->p->north_path, m->p->south_path, m->p->west_path, m->p->east_path);
 	p_check(m);
 }

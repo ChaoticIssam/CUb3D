@@ -12,6 +12,40 @@
 
 #include "cub3d.h"
 
+int	where_to_stop(t_main *m)
+{
+	int	i;
+
+	i = 0;
+	while (m->str[i])
+	{
+		if (m->str[i] == '\n')
+		{
+			while (white_space(m->str[i]))
+				i++;
+			if (m->str[i] == '1')
+				return (i);
+		}
+		i++;
+	}
+	return (0);
+}
+
+void	new_line_inside(t_main *m)
+{
+	int	i;
+	int	last;
+
+	i = ft_strlen(m->str);
+	last = where_to_stop(m);
+	while (i >= last)
+	{
+		if (m->str[i] == '\n' && m->str[i - 1] == '\n')
+			empty_line_inside();
+		i--;
+	}
+}
+
 int	map_first_line(t_main *m)
 {
 	int	i;

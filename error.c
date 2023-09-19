@@ -59,3 +59,15 @@ void	color_error(void)
 	ft_printf("ERROR:\n \tColor is invalid or Missing!\n");
 	exit (1);
 }
+
+void	empty_line_inside(void)
+{
+	ft_printf("ERROR:\n \tEmpty line inside map!\n");
+	exit (1);
+}
+
+void	undefined_line_error(void)
+{
+	ft_printf("ERROR:\n \tUndefined line on map file!\n");
+	exit (1);
+}

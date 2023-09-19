@@ -30,6 +30,7 @@ int	main(int ac, char **av)
 	m->count = 1;
 	m->fd = open(av[1], O_RDWR);
 	check_check(m);
+	new_line_inside(m);
 	if (!m->str)
 		return (0);
 	create_map(m);
