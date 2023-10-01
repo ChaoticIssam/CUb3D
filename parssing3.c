@@ -6,7 +6,7 @@
 /*   By: deimos <deimos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 13:46:59 by iszitoun          #+#    #+#             */
-/*   Updated: 2023/09/08 16:00:37 by deimos           ###   ########.fr       */
+/*   Updated: 2023/09/24 18:16:11 by deimos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	check_sides(t_main *m)
 		j = 0;
 		while (white_space(m->map[i][j]))
 			j++;
-		if (m->map[i][j] != '1' || m->map[i][line_len(m->map[i]) - 1] != '1')
+		if ((m->map[i][j] != '1')|| m->map[i][line_len(m->map[i]) - 1] != '1')
 			sides_error();
 		i++;
 	}

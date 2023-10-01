@@ -1,15 +1,14 @@
-EA  ./textures/player.xpm
-NO  ./textures/player.xpm
-WE  ./textures/player.xpm
-SO  ./textures/player.xpm
+EA ./textures/player.xpm
+NO ./textures/player.xpm
+WE ./textures/player.xpm
+SO ./textures/player.xpm
 
 
-F   100,15, 46
+F   240     ,       15     ,        46
+C	 0, 50,2 
 
-C	 250, 50,2
 
-
-111111111111111111111111111111111111111111111
+11111111111111111111111111111111111111111111                  
 10000000000000000111000110001 10000000000000111
 10000000000000000000000000011100000000111111
 1000001110000000000000000000000000000111

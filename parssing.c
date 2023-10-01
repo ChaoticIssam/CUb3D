@@ -6,7 +6,7 @@
 /*   By: deimos <deimos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 18:22:38 by iszitoun          #+#    #+#             */
-/*   Updated: 2023/09/09 01:27:15 by deimos           ###   ########.fr       */
+/*   Updated: 2023/09/24 18:14:16 by deimos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ int	map_frst_line(t_main *m)
 		j = 0;
 		while (m->map[i][j] && (m->map[i][j] == ' ' || m->map[i][j] == '\t'))
 			j++;
-		if (m->map[i][j] == '1')
+		if (m->map[i][j] == '1' || m->map[i][j] == 32 || m->map[i][j] == '\t')
 		{
-			while ((m->map[i][j] == '1') && m->map[i][j])
+			while ((m->map[i][j] == '1' || m->map[i][j] == 32 || m->map[i][j] == '\t') && m->map[i][j])
 			{
 				j++;
 				if (!m->map[i][j] || m->map[i][j] == '\n')

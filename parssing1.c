@@ -6,7 +6,7 @@
 /*   By: deimos <deimos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 18:35:27 by iszitoun          #+#    #+#             */
-/*   Updated: 2023/09/08 17:39:06 by deimos           ###   ########.fr       */
+/*   Updated: 2023/09/24 18:23:14 by deimos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@ int	line_len(char *s)
 		return (0);
 	while (s[j])
 		j++;
+	if (s[j - 1] == 32 || s[j - 1] == '\t')
+	{
+		j--;
+		while (s[j] == 32 || s[j] == '\t')
+			j--;
+	}
 	return (j);
 }
 
@@ -81,7 +87,7 @@ int	map_check_last(t_main *m)
 	i = line_count(m);
 	while (m->map[i][j])
 	{
-		if (m->map[i][j] != '1' && m->map[i][j] != ' ')
+		if (m->map[i][j] != '1' && m->map[i][j] != ' ' && m->map[i][j] != '\t')
 			horinzontal_error();
 		j++;
 	}
